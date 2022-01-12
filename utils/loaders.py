@@ -197,7 +197,7 @@ def load_safari(folder):
         x = (x.astype('float32') - 127.5) / 127.5
         ##x = x.astype('float32') / 255.0
         
-        x = x.reshape(x.shape[0], 28, 28, 1)
+        x = x.reshape(x.shape[0], 128, 128, 1)
         
         y = [i] * len(x)  
         np.random.seed(seed)
