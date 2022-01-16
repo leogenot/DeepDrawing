@@ -193,11 +193,11 @@ def load_safari(folder):
 
     for txt_name in txt_name_list:
         txt_path = os.path.join(mypath,txt_name)
-        x = np.load(txt_path, allow_pickle=True)
+        x = np.load(txt_path)
         x = (x.astype('float32') - 127.5) / 127.5
-        ##x = x.astype('float32') / 255.0
+        # x = x.astype('float32') / 255.0
         
-        x = x.reshape(x.shape[0], 128, 128, 1)
+        x = x.reshape(x.shape[0], 28, 28, 1)
         
         y = [i] * len(x)  
         np.random.seed(seed)
@@ -236,7 +236,7 @@ def load_cifar(label, num):
 
 
 def load_celeb(data_name, image_size, batch_size):
-    data_folder = os.path.join("./data", data_name)
+    data_folder = os.path.join("data", data_name)
 
     data_gen = ImageDataGenerator(preprocessing_function=lambda x: (x.astype('float32') - 127.5) / 127.5)
 
