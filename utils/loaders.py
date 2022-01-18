@@ -193,9 +193,9 @@ def load_safari(folder):
 
     for txt_name in txt_name_list:
         txt_path = os.path.join(mypath,txt_name)
-        x = np.load(txt_path, allow_pickle=True)
+        x = np.load(txt_path)
         x = (x.astype('float32') - 127.5) / 127.5
-        ##x = x.astype('float32') / 255.0
+        # x = x.astype('float32') / 255.0
         
         x = x.reshape(x.shape[0], 28, 28, 1)
         

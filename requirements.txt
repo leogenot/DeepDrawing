@@ -1,8 +1,8 @@
-tensorflow-directml
+tensorflow
 ipykernel
 matplotlib
 pandas
 imageio
 graphviz
 scipy
-pydot
+pillow
