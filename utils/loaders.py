@@ -244,6 +244,7 @@ def load_celeb(data_name, image_size, batch_size):
                                             , target_size = (image_size,image_size)
                                             , batch_size = batch_size
                                             , shuffle = True
+                                            , color_mode = 'grayscale'
                                             , class_mode = 'input'
                                             , subset = "training"
                                                 )
