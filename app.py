@@ -143,7 +143,11 @@ class MainWindow(QtWidgets.QMainWindow):
                         image = imageio.imread('images_gif/imageg_'+ str(i) + '.png')
                         writer.append_data(image)
                         
-            os.mkdir("images_gif")            
+                        
+            if os.path.exists("images_gif"):
+                shutil.rmtree('images_gif', ignore_errors=True)
+            else:            
+                os.mkdir("images_gif")            
             # load model
             model = load_model('generator.h5')
             # generate points in latent space
