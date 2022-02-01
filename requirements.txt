@@ -1,8 +1,8 @@
-tensorflow
+graphviz
+imageio
 ipykernel
 matplotlib
+numpy
 pandas
-imageio
-graphviz
 scipy
-pillow
+tensorflow
