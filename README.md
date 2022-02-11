@@ -39,3 +39,18 @@ pip install pydot
 ```
 
 ## and then run the notebook in your preferred app
+
+# Google Collab
+## Setup the environment:
+
+```bash
+!git clone 'https://github.com/leogenot/DeepDrawingGeneration'
+```
+
+```bash
+%cd DeepDrawingGeneration
+```
+
+### and then run the notebook 
+
+
