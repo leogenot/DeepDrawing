@@ -4,12 +4,12 @@ let generator;
 })();
 
 
-document.getElementById("generate-button").addEventListener("click",async function(){
+document.getElementById("generate-button").addEventListener("click", function(){
   const noise = tf.randomNormal([100]).maximum(tf.scalar(0, 'float32')).minimum(tf.scalar(1, 'float32')).expandDims(0);
 
 
   //var latent_points = generate_latent_points(100, 100)
-  let generatedImage = await generator.predict(noise).squeeze([0]);
+  let generatedImage = generator.predict(noise).squeeze([0]);
 
 
   const mycanvas = document.getElementById("generated-image");
