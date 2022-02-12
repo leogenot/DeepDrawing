@@ -1,9 +1,0 @@
-tensorflow-directml
-tensorflow-addons
-ipykernel
-matplotlib
-pandas
-imageio
-graphviz
-scipy
-opencv-python
