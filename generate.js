@@ -1,7 +1,6 @@
-var generator;
-(async function () {
-    generator = await tf.loadLayersModel("model_js/model.json");
-})();
+
+var generator =tf.loadLayersModel("model_js/model.json");
+
 
 
 var image_size = 128
