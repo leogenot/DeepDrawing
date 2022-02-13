@@ -193,7 +193,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 
 
-        window.decoder = generator;
+
         sample({ x: 0, y: 0 })
         world.render();
         new Controls2D({ onDrag: sample });
@@ -202,7 +202,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     })
 
-
+    window.decoder = generator;
     // get the point geometry
     function getGeometry(colors) {
         var geometry = new THREE.Geometry();
