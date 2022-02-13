@@ -1,85 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset='utf-8'>
   <title>Generative Deep Drawing</title>
-  <link rel="stylesheet" href="./style.css">
-
+  <style>
+  </style>
 </head>
 
 <body>
-  <!-- partial:index.partial.html -->
-  <main>
-    <div class="lp">
+  
 
-      <nav>
-        <div class="nav__item">
-          <div class="nav__logo">
-            <div class="nav__logoShape">
-            </div>
-            <div class="nav__logoText">ON</div>
-          </div>
-        </div>
-        <div class="nav__item">
-          <div class="nav__link"></div>
-          <button id="generate-button">Generate</button>
-        </div>
-      </nav>
-
-      <div class="content">
-        <section class="main__text">
-          <canvas class="img-responsive p-2" id="generated-image" height="128px" width="128px" src=""></canvas>
-        </section>
-
-        <section class="shape__holder">
-          <div class="shape__circle">
-            <div class="circle">
-              <div class="circle-half">
-              </div>
-              <div class="circle-half">
-              </div>
-            </div>
-          </div>
-
-          <div class="squiggle__cont">
-            <div class="shape__squiggle">
-              <div class="squiggle"></div>
-              <div class="squiggle squiggle2">
-              </div>
-            </div>
-            <div class="shape__squiggle">
-              <div class="squiggle"></div>
-              <div class="squiggle squiggle2">
-              </div>
-            </div>
-            <div class="shape__squiggle">
-              <div class="squiggle"></div>
-              <div class="squiggle squiggle2">
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-
-      </div>
-
-
-      <section class="content__bottom">
-        <div class="content__btm__item "></div>
-        <div class="content__btm__item "></div>
-        <div class="content__btm__item "></div>
-        <div class="content__btm__item "></div>
-        <div class="content__btm__item "></div>
-      </section>
-
-    </div>
-  </main>
-  <!-- partial -->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
-  <script src="./script.js"></script>
-
+  <button id="generate-button" class="btn btn-dark">Generate</button>
+  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tensorflow/3.8.0/tf.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/97/three.min.js'></script>
+  <script src='https://threejs.org/examples/js/controls/TrackballControls.js'></script>
+  <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.1.1/math.js" integrity="sha512-0MC8WeRWoyA1u5N3ssCsJDSbNfw3bjF65BIQ3UTPs9nwaV0fy+JN3FH9PQmYACZOEkQFhUvEP+jIqwOlBjEM9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src='Controls2D.js'></script>
+  <script src='ThreeWorld.js'></script>
+  <script src="numjs.js"></script>
+  <script src="generate.js"></script>
 </body>
 
 </html>
