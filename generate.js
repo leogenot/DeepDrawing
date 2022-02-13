@@ -1,5 +1,10 @@
 window.addEventListener("DOMContentLoaded", (event) => {
-    var generator = tf.loadLayersModel("model_js/model.json");
+    let generator;
+    (async function () {
+        generator = await tf.loadLayersModel("model_js/model.json");
+    })();
+
+
 
 
 
