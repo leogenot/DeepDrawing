@@ -189,7 +189,6 @@ document.getElementById("generate-button").addEventListener("click", function ()
 
 
 
-    window.decoder = generator;
     sample({ x: 0, y: 0 })
     world.render();
     new Controls2D({ onDrag: sample });
@@ -234,7 +233,7 @@ function sample(obj) {
 
 
     // sample from region 10, 50 in latent space
-    var prediction = window.decoder.predict(tensor).dataSync();
+    var prediction = generator.predict(tensor).dataSync();
     // log the prediction to the browser console
     mesh.geometry = getGeometry(prediction);
     //console.log(ptgenerated)
