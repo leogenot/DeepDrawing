@@ -9,7 +9,7 @@ var input_dim = 100
 var nb_points = 4
 var latentspace2D = nj.zeros([image_size, image_size, input_dim])
 var ptgenerated = nj.zeros([1, input_dim])
-var modelPath = 'model_js/model.json';
+//var modelPath = 'model_js/model.json';
 
 // add the mesh to the scene
 var world = new ThreeWorld();
@@ -189,6 +189,7 @@ document.getElementById("generate-button").addEventListener("click", function ()
 
 
 
+    //window.decoder = generator;
     sample({ x: 0, y: 0 })
     world.render();
     new Controls2D({ onDrag: sample });
