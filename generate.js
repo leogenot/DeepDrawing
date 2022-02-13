@@ -1,4 +1,4 @@
-let generator;
+var generator;
 (async function () {
     generator = await tf.loadLayersModel("model_js/model.json");
 })();
