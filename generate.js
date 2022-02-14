@@ -190,6 +190,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             sample({x: 0, y: 0})
             world.render();
             new Controls2D({ onDrag: sample });
+            console.log("Everything is loaded")
           })
 
 
