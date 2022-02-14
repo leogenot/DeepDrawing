@@ -3,7 +3,7 @@ function Controls2D(obj) {
   // parse input arguments
   obj = obj || {};
   this.min = obj.min || 0;
-  this.max = obj.max || 100;
+  this.max = obj.max || 127;
   this.onDrag = obj.onDrag || function(a) {console.log('* sampling', a)};
   this.container = obj.container
     ? obj.container
@@ -105,7 +105,7 @@ function Controls2D(obj) {
 
   // scale sampled value `v` from 0:82 to 0:1
   function scale(v) {
-    return v/82;
+    return v * (127/91);
   }
 
   // determine the offset of some event within an element
