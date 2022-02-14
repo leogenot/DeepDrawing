@@ -1,9 +1,5 @@
 window.addEventListener("DOMContentLoaded", (event) => {
-    let generator;
-    (async function () {
-        generator = await tf.loadLayersModel("model_js/model.json");
-    })();
-
+    var modelPath = 'model_js/model.json';
 
 
 
@@ -189,20 +185,25 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }
 
 
+        tf.loadLayersModel(modelPath).then(function(model) {
+            window.decoder = model;
+            sample({x: 0, y: 0})
+            world.render();
+            new Controls2D({ onDrag: sample });
+          })
 
 
 
-
-
+        /* window.decoder = generator;
         sample({ x: 0, y: 0 })
         world.render();
-        new Controls2D({ onDrag: sample });
+        new Controls2D({ onDrag: sample }); */
 
 
 
     })
 
-    window.decoder = generator;
+    
     // get the point geometry
     function getGeometry(colors) {
         var geometry = new THREE.Geometry();
