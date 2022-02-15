@@ -23,6 +23,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     var geometry = getGeometry([]);
     world.mesh = new THREE.Points(geometry, material);
     world.controls.noPan = true;
+    world.controls.noRotate = true;
     world.scene.add(world.mesh);
     document.getElementById("generate-button").addEventListener("click", function () {
         class RBFInterpolation {
