@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     var image_size = 128
     var input_dim = 100
-    var nb_points = 4
+    var nb_points = 5
     var latentspace2D = nj.zeros([image_size, image_size, input_dim])
     var ptgenerated = nj.zeros([1, input_dim])
     //var modelPath = 'model_js/model.json';
@@ -15,8 +15,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
     // add the mesh to the scene
     var world;
     var container = document.querySelector('#celeba-scene'),
+        square_container = document.querySelector('#square'),
         loader = container.querySelector('.loader');
-    world = new ThreeWorld({ container: container, });
+    world = new ThreeWorld({ container: container, square_container: square_container,});
     var materialConfig = { size: 1.3, vertexColors: THREE.VertexColors, };
     var material = new THREE.PointsMaterial(materialConfig);
     var geometry = getGeometry([]);
@@ -26,7 +27,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById("generate-button").addEventListener("click", function () {
         class RBFInterpolation {
             constructor(pointList, pointValues) {
-                this.pointListSize = 4
+                this.pointListSize = nb_points
                 //w coefficients
                 var wArray = nj.zeros([1, this.pointListSize])
                 this.pointList = pointList
@@ -72,14 +73,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }
 
 
-
+        
 
 
         function randn_bm() {
             var u = 0, v = 0;
             while (u === 0) u = math.random(); //Converting [0,1) to (0,1)
             while (v === 0) v = math.random();
-            return math.sqrt(-2.0 * math.log(u)) * math.cos(2.0 * math.PI * v);
+            return math.random();
         }
 
 
@@ -96,6 +97,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
         var pt2 = generate_latent_points(input_dim, 1)
         var pt3 = generate_latent_points(input_dim, 1)
         var pt4 = generate_latent_points(input_dim, 1)
+        var pt5 = generate_latent_points(input_dim, 1)
+
+
         function rbfDistance(pt1X, pt1Y, pt2X, pt2Y) {
             var VectArray = nj.zeros(2)
             VectArray.set(0, pt1X - pt2X)
@@ -122,6 +126,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             pointListseed.set(i, 1, pt2.get(0, i))
             pointListseed.set(i, 2, pt3.get(0, i))
             pointListseed.set(i, 3, pt4.get(0, i))
+            pointListseed.set(i, 4, pt5.get(0, i))
         }
 
         var pt = nj.zeros(2)
@@ -165,6 +170,16 @@ window.addEventListener("DOMContentLoaded", (event) => {
         pointListPos.set(compteur, 1, pt.get(1));
         for (let i = 0; i < input_dim; i++)
             latentspace2D.set(pt.get(0), pt.get(1), i, pointListseed.get(i, compteur))
+        
+        compteur += 1
+
+
+        pt.set(0, Math.round(image_size / 2))
+        pt.set(1, Math.round(image_size / 2))
+        pointListPos.set(compteur, 0, pt.get(0));
+        pointListPos.set(compteur, 1, pt.get(1));
+        for (let i = 0; i < input_dim; i++)
+            latentspace2D.set(pt.get(0), pt.get(1), i, pointListseed.get(i, compteur))
 
         let rbf_tab = []
         for (let i = 0; i < input_dim; i++) {
@@ -194,7 +209,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             sample({ x: 0, y: 0 })
             world.render();
             loader.parentNode.removeChild(loader);
-            window.c2d = new Controls2D({ onDrag: sample, container: container, });
+            window.c2d = new Controls2D({ onDrag: sample, container: container,square_container: square_container,});
             console.log("Everything is loaded")
         })
 
