@@ -26,6 +26,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     world.controls.noRotate = true;
     world.scene.add(world.mesh);
     document.getElementById("generate-button").addEventListener("click", function () {
+        latentspace2D = nj.zeros([image_size, image_size, input_dim])
+        ptgenerated = nj.zeros([1, input_dim])
         class RBFInterpolation {
             constructor(pointList, pointValues) {
                 this.pointListSize = nb_points
