@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     var container = document.querySelector('#celeba-scene'),
         square_container = document.querySelector('#square'),
         loader = container.querySelector('.loader');
-    world = new ThreeWorld({ container: container, square_container: square_container,});
+    world = new ThreeWorld({ container: container, square_container: square_container, });
     var materialConfig = { size: 1.3, vertexColors: THREE.VertexColors, };
     var material = new THREE.PointsMaterial(materialConfig);
     var geometry = getGeometry([]);
@@ -76,20 +76,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }
 
 
-        
 
 
-        function randn_bm() {
-            var u = 0, v = 0;
-            while (u === 0) u = math.random(); //Converting [0,1) to (0,1)
-            while (v === 0) v = math.random();
-            return math.random();
-        }
+
+        // Standard Normal variate using Box-Muller transform.
+        function randn_bm(min, max, skew) {
+            let u = 0, v = 0;
+            while(u === 0) u = Math.random() //Converting [0,1) to (0,1)
+            while(v === 0) v = Math.random()
+            let num = Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v )
+            return num
+          }
 
 
         //generate points in latent space as input for the generator
         function generate_latent_points(latent_dim, n_samples) {    //generate points in the latent space
-            var x_input = nj.array(Array.from({ length: latent_dim * n_samples }, () => randn_bm()));
+            var x_input = nj.array(Array.from({ length: latent_dim * n_samples }, () => randn_bm(-10,10,1)));
             //reshape into a batch of inputs for the network
             var z_input = x_input.reshape(n_samples, latent_dim)
             return z_input
@@ -102,7 +104,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
         var pt4 = generate_latent_points(input_dim, 1)
         var pt5 = generate_latent_points(input_dim, 1)
 
-
         function rbfDistance(pt1X, pt1Y, pt2X, pt2Y) {
             var VectArray = nj.zeros(2)
             VectArray.set(0, pt1X - pt2X)
@@ -110,7 +111,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
             var d = math.sqrt(math.pow(VectArray.get(0), 2) + math.pow(VectArray.get(1), 2))
 
-            return math.exp(-0.00002 * d * d)
+            return math.exp(-0.0001* d * d)
 
         }
 
@@ -173,7 +174,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         pointListPos.set(compteur, 1, pt.get(1));
         for (let i = 0; i < input_dim; i++)
             latentspace2D.set(pt.get(0), pt.get(1), i, pointListseed.get(i, compteur))
-        
+
         compteur += 1
 
 
@@ -212,7 +213,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             sample({ x: 0, y: 0 })
             world.render();
             loader.parentNode.removeChild(loader);
-            window.c2d = new Controls2D({ onDrag: sample, container: container,square_container: square_container,});
+            window.c2d = new Controls2D({ onDrag: sample, container: container, square_container: square_container, });
             console.log("Everything is loaded")
         })
 
