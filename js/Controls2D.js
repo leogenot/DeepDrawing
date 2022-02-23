@@ -4,29 +4,26 @@ function Controls2D(obj) {
   obj = obj || {};
   this.min = obj.min || 0;
   this.max = obj.max || 127;
-  this.onDrag = obj.onDrag || function (a) { console.log('* sampling', a) };
+  this.onDrag = obj.onDrag || function(a) {console.log('* sampling', a)};
   this.container = obj.container
     ? obj.container
     : document.querySelector('body');
-  this.square_container = obj.square_container
-    ? obj.square_container
-    : document.querySelector('#square_container');
 
   // state
   this.down = null; // object if we've mousedowned, else null
 
   // create the ui
-  this.render = function () {
+  this.render = function() {
     this.box = document.createElement('div');
     this.box.id = 'ui-box';
     this.toggle = document.createElement('div');
     this.toggle.id = 'ui-toggle';
     this.box.appendChild(this.toggle);
-    this.square_container.appendChild(this.box);
+    this.container.appendChild(this.box);
   }
 
   // style the ui
-  this.style = function () {
+  this.style = function() {
     var style = document.createElement('style');
     style.textContent = '#ui-box {' +
       '  position: absolute;' +
@@ -55,20 +52,20 @@ function Controls2D(obj) {
   };
 
   // main function called on toggle drag
-  this.moveToggle = function (e) {
+  this.moveToggle = function(e) {
     var position = offsetWithinBox(e),
-      x = position.x,
-      y = position.y,
-      boxW = this.box.clientWidth,
-      toggleW = this.toggle.clientWidth + 2; // 2px border
-    x -= toggleW / 2;
-    y -= toggleW / 2;
+        x = position.x,
+        y = position.y,
+        boxW = this.box.clientWidth,
+        toggleW = this.toggle.clientWidth + 2; // 2px border
+    x -= toggleW/2;
+    y -= toggleW/2;
     // keep toggle in box
     if (x < 0) x = 0;
     if (y < 0) y = 0;
-    if (x > boxW - (toggleW / 2)) x = boxW - (toggleW / 2);
-    if (y > boxW - (toggleW / 2)) y = boxW - (toggleW / 2);
-    this.toggle.style.left = x- 40 + 'px';
+    if (x > boxW - (toggleW/2)) x = boxW - (toggleW/2);
+    if (y > boxW - (toggleW/2)) y = boxW - (toggleW/2);
+    this.toggle.style.left = x + 'px';
     this.toggle.style.top = y + 'px';
     // pass scaled x, y coords to obj.onDrag callback
     this.onDrag({
@@ -97,7 +94,7 @@ function Controls2D(obj) {
   }
 
   // add event listeners to controls
-  this.addListeners = function () {
+  this.addListeners = function() {
     this.box.addEventListener('mousedown', start.bind(this))
     this.box.addEventListener('touchstart', start.bind(this))
     this.box.addEventListener('mousemove', move.bind(this))
@@ -120,8 +117,8 @@ function Controls2D(obj) {
     var x = coords.x - rect.left;
     var y = coords.y - rect.top;
     return {
-      x: x ,
-      y: y ,
+      x: x,
+      y: y,
     };
   }
 
@@ -130,17 +127,17 @@ function Controls2D(obj) {
       x: e.touches && e.touches[0] && 'clientX' in e.touches[0]
         ? e.touches[0].clientX
         : e.changedTouches && e.changedTouches[0] && 'clientX' in e.changedTouches[0]
-          ? e.changedTouches[0].clientX
-          : e.clientX
-            ? e.clientX
-            : e.pageX,
+        ? e.changedTouches[0].clientX
+        : e.clientX
+        ? e.clientX
+        : e.pageX,
       y: e.touches && e.touches[0] && 'clientY' in e.touches[0]
         ? e.touches[0].clientY
         : e.changedTouches && e.changedTouches[0] && 'clientY' in e.changedTouches[0]
-          ? e.changedTouches[0].clientY
-          : e.clientY
-            ? e.clientY
-            : e.pageY,
+        ? e.changedTouches[0].clientY
+        : e.clientY
+        ? e.clientY
+        : e.pageY,
     }
   }
 

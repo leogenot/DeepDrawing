@@ -2,32 +2,26 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Generative Deep Drawing</title>
-	<link href="https://fonts.googleapis.com/css?family=Spartan:500,700|Fira+Code:500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./style.css">
-
-</head>
-
-<body>
-	<main>
-		<div id="app">
-
-			<div id="left-container">
-				<div id="square_container"></div>
-				<button type="button" id="generate-button">Load AI</button>
-			</div>
-
-			<div id="right-container">
-				<h1>Generative Deep Drawing</h1>
-				<div id="celeba-scene">
-					<div class="loader">Loading the AI</div>
-				</div>
-			</div>
-		</div>
-	</main>
-	<script type='text/javascript' src='js/tf.min.js'></script>
+	<link rel="stylesheet" href="styles.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script type='text/javascript' src='js/three.min.js'></script>
+	<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.1.1606863050/camera_utils.js"
+		crossorigin="anonymouse"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.1.1606873488/drawing_utils.js"
+		crossorigin="anonymouse"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.1.1606863095/hands.js"
+		crossorigin="anonymouse"></script>
+	<script src="https://cdn.jsdelivr.net/npm/three@0.123.0/examples/js/objects/Refractor.js"
+		crossorigin="anonymouse"></script>
 	<script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.1.1/math.js"
 		integrity="sha512-0MC8WeRWoyA1u5N3ssCsJDSbNfw3bjF65BIQ3UTPs9nwaV0fy+JN3FH9PQmYACZOEkQFhUvEP+jIqwOlBjEM9w=="
@@ -36,8 +30,93 @@
 	<script type='text/javascript' src='js/ThreeWorld.js'></script>
 	<script type='text/javascript' src='js/Controls2D.js'></script>
 	<script type='text/javascript' src='js/trackball-controls.min.js'></script>
-	<script type='text/javascript' src='js/sample-celeba.js'></script>
+	
+</head>
 
+<body>
+	<div class="container">
+		<div class="left column" id="show-generate">
+			<div class="logo"><img src="images/logo.svg" alt="Generative Deep Drawing Logo Loader"></div>
+			<div class="header">
+				<h1 class="ml12">GENERATE</h1>
+			</div>
+			<div class="header">
+				<h1 class="ml13">RANDOM</h1>
+			</div>
+			<div class="header">
+				<h1 class="ml14">SKETCHES.</h1>
+			</div>
+			<div class="price">
+				<span><a href="https://github.com/leogenot/DeepDrawingGeneration" target="_blank"
+						class="link-s">GITHUB</a></span>
+			</div>
+		</div>
+		<div class="left column" id="show-cam-cursor" style="display:none;">
+			<div class="logo"><img src="images/logo.svg" alt="Generative Deep Drawing Logo Loader"></div>
+			<div id="square_container"></div>
+			<div class="container_video">
+				<video class="input_video"></video>
+				<canvas class="output_canvas" width="127px" height="127px"></canvas>
+				<div class="loading">
+					<div class="spinner"></div>
+					<div class="message">
+						Loading
+					</div>
+				</div>
+			</div>
+			<div class="header">
+				<p>After clicking one of the buttons, site will become unresponsive for approximately 40s, it's to load the AI.</p>
+			</div>
+			<div class="header">
+				<p>For webcam : use one hand to move through the Latent-Space
+					and see sketches being morphed.</p>
+			</div>
+			<div class="header">
+				<p>For cursor : use your mouse to move the cursor through the
+					Latent-Space and see sketches being morphed.</p>
+			</div>
+			<div class="price">
+				<span><a href="https://github.com/leogenot/DeepDrawingGeneration" target="_blank"
+						class="link-s">GITHUB</a></span>
+			</div>
+		</div>
+		<div class="right column">
+
+			<div class="tabs nav">
+				<span class="tab generate active nav-item"><a>GENERATE IMAGE</a></span>
+				<span class="tab animate nav-item"><a>ANIMATE</a></span>
+			</div>
+			<div class="content">
+				<div class="generate-cont cont">
+					<div class="card-img">
+						<canvas class="img-responsive p-2" id="generated-image" height="128px" width="128px" src=""></canvas>
+					</div>
+					<div class="buttons">
+						<div class="btn">
+							<button id="generate-button">GENERATE</button>
+						</div>
+						<div class="btn">
+							<button id="save-button">SAVE IMAGE</button>
+						</div>
+					</div>
+				</div>
+				<div class="animate-cont cont">
+					<div id="celeba-scene">
+						<div class="loader">Loading the AI</div>
+					</div>
+					<div class="buttons">
+						<div class="btn latent-buttons">
+							<button id="webcam-load-button">USE WEBCAM</button>
+						</div>
+						<div class="btn latent-buttons">
+							<button id="cursor-load-button">USE CURSOR</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </body>
-
+<script src="js/script.js"></script>
 </html>
