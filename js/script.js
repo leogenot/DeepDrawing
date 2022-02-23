@@ -1,4 +1,23 @@
 window.addEventListener("DOMContentLoaded", (event) => {
+    let generator;
+    (async function () {
+        generator = await tf.loadLayersModel("model_js/model.json");
+    })();
+
+
+    document.getElementById("generate-button").addEventListener("click", async function () {
+        const noise = tf.randomNormal([100]).maximum(tf.scalar(0, 'float32')).minimum(tf.scalar(1, 'float32')).expandDims(0);
+
+
+        //var latent_points = generate_latent_points(100, 100)
+        let generatedImage = await generator.predict(noise).squeeze([0]);
+
+
+        const mycanvas = document.getElementById("generated-image");
+        tf.browser.toPixels(generatedImage, mycanvas).then(() => {
+            generatedImage.dispose();
+        });
+    })
 
     $('.tabs .tab').click(function () {
         if ($(this).hasClass('generate')) {
@@ -196,7 +215,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     document.getElementById("webcam-load-button").addEventListener("click", function () {
         var elementExists = document.querySelector('#three_canvas');
-        if(elementExists){
+        if (elementExists) {
             elementExists.parentNode.removeChild(elementExists)
             //alert("exist")
         }
@@ -864,7 +883,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById("cursor-load-button").addEventListener("click", function () {
         document.querySelector(".container_video").style.display = "none"
         var elementExists = document.querySelector('#three_canvas');
-        if(elementExists){
+        if (elementExists) {
             elementExists.parentNode.removeChild(elementExists)
             //alert("exist")
         }
@@ -1122,22 +1141,3 @@ window.addEventListener("DOMContentLoaded", (event) => {
 })
 
 
-let generator;
-(async function () {
-    generator = await tf.loadLayersModel("model_js/model.json");
-})();
-
-
-document.getElementById("generate-button").addEventListener("click", async function () {
-    const noise = tf.randomNormal([100]).maximum(tf.scalar(0, 'float32')).minimum(tf.scalar(1, 'float32')).expandDims(0);
-
-
-    //var latent_points = generate_latent_points(100, 100)
-    let generatedImage = await generator.predict(noise).squeeze([0]);
-
-
-    const mycanvas = document.getElementById("generated-image");
-    tf.browser.toPixels(generatedImage, mycanvas).then(() => {
-        generatedImage.dispose();
-    });
-})
