@@ -13,6 +13,9 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
 	<script type='text/javascript' src='js/three.min.js'></script>
 	<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.1.1606863050/camera_utils.js"
 		crossorigin="anonymouse"></script>
@@ -22,6 +25,8 @@
 		crossorigin="anonymouse"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.123.0/examples/js/objects/Refractor.js"
 		crossorigin="anonymouse"></script>
+		<script src="js/nyp.js"
+		crossorigin="anonymouse"></script>
 	<script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.1.1/math.js"
 		integrity="sha512-0MC8WeRWoyA1u5N3ssCsJDSbNfw3bjF65BIQ3UTPs9nwaV0fy+JN3FH9PQmYACZOEkQFhUvEP+jIqwOlBjEM9w=="
@@ -30,7 +35,7 @@
 	<script type='text/javascript' src='js/ThreeWorld.js'></script>
 	<script type='text/javascript' src='js/Controls2D.js'></script>
 	<script type='text/javascript' src='js/trackball-controls.min.js'></script>
-	
+
 </head>
 
 <body>
@@ -65,7 +70,8 @@
 				</div>
 			</div>
 			<div class="header">
-				<p>After clicking one of the buttons, site will become unresponsive for approximately 40s, it's to load the AI.</p>
+				<p>After clicking one of the buttons, site will become unresponsive for approximately 40s, it's to load
+					the AI.</p>
 			</div>
 			<div class="header">
 				<p>For webcam : use one hand to move through the Latent-Space
@@ -89,7 +95,8 @@
 			<div class="content">
 				<div class="generate-cont cont">
 					<div class="card-img">
-						<canvas class="img-responsive p-2" id="generated-image" height="128px" width="128px" src=""></canvas>
+						<canvas class="img-responsive p-2" id="generated-image" height="128px" width="128px"
+							src=""></canvas>
 					</div>
 					<div class="buttons">
 						<div class="btn">
@@ -119,4 +126,5 @@
 	</div>
 </body>
 <script src="js/script.js"></script>
+
 </html>
