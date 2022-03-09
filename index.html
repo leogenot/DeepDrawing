@@ -25,7 +25,7 @@
 		crossorigin="anonymouse"></script>
 	<script src="https://cdn.jsdelivr.net/npm/three@0.123.0/examples/js/objects/Refractor.js"
 		crossorigin="anonymouse"></script>
-		<script src="js/nyp.js"
+		<script src="js/load_page.js"
 		crossorigin="anonymouse"></script>
 	<script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.1.1/math.js"
@@ -58,7 +58,6 @@
 		</div>
 		<div class="left column" id="show-cam-cursor" style="display:none;">
 			<div class="logo"><img src="images/logo.svg" alt="Generative Deep Drawing Logo Loader"></div>
-			<div id="square_container"></div>
 			<div class="container_video">
 				<video class="input_video"></video>
 				<canvas class="output_canvas" width="127px" height="127px"></canvas>
@@ -69,9 +68,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="header">
-				<p>After clicking one of the buttons, site will become unresponsive for approximately 40s, it's to load
-					the AI.</p>
+			<div class="header" id="video_cont">
 			</div>
 			<div class="header">
 				<p>For webcam : use one hand to move through the Latent-Space
