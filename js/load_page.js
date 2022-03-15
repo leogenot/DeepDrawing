@@ -127,6 +127,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
         0.2
     );
 
+    
+
     TweenMax.staggerFrom(
         ".form > div",
         1, {
