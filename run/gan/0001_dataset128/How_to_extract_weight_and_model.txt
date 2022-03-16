@@ -1,0 +1,7 @@
+weight and mode lneeds to be extracted from their zip state,
+
+-select all files in weights_zip or model_zip 
+-right clic > 7zip > extract to "*/"
+-files will be extrtacted into according folder
+-put weights folder in the parent folder (ex: 0001_dataset128)
+and put model.h5 file (not folder) in the parent folder (ex: 0001_dataset128)
