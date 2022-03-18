@@ -47,11 +47,11 @@ pip install opencv-python
 ## Setup the environment:
 
 ```bash
-!git clone 'https://github.com/leogenot/DeepDrawingGeneration'
+!git clone 'https://github.com/leogenot/GenerativeDeepDrawing/tree/WGAN-GP-64'
 ```
 
 ```bash
-%cd DeepDrawingGeneration
+%cd GenerativeDeepDrawing
 ```
 
 ### and then run the notebook 
