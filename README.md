@@ -12,7 +12,7 @@ conda create --name NAMEOFYOURENVIRONMENT python=3.6
 conda activate NAMEOFYOURENVIRONMENT
 ```
 
-You can either install pip dependencies by hand of by wtriting pip install -r requirements.txt in command line
+You can either install pip dependencies by hand of by writing pip install -r requirements.txt in command line
 ```bash
 pip install tensorflow-directml
 ```
