@@ -47,13 +47,15 @@ pip install opencv-python
 ## Setup the environment:
 
 ```bash
-!git clone 'https://github.com/leogenot/DeepDrawingGeneration'
+!git clone 'https://github.com/leogenot/GenerativeDeepDrawing/'
 ```
 
 ```bash
-%cd DeepDrawingGeneration
+%cd GenerativeDeepDrawing
 ```
 
 ### and then run the notebook 
 
+# Or simply run:
+[Link to notebook in Colab](https://colab.research.google.com/drive/1-XMUFnbl9FYbOe-MYNlzNj6Fb-UJqDOB?usp=sharing)
 
