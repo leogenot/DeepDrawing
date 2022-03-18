@@ -47,7 +47,7 @@ pip install opencv-python
 ## Setup the environment:
 
 ```bash
-!git clone 'https://github.com/leogenot/GenerativeDeepDrawing/tree/WGAN-GP-64'
+!git clone -b WGAN-GP-64 'https://github.com/leogenot/GenerativeDeepDrawing/'
 ```
 
 ```bash
