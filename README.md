@@ -12,7 +12,7 @@ conda create --name NAMEOFYOURENVIRONMENT python=3.6
 conda activate NAMEOFYOURENVIRONMENT
 ```
 
-You can either install pip dependencies by hand of by wtriting pip install -r requirements.txt in command line
+You can either install pip dependencies by hand of by writing pip install -r requirements.txt in command line
 ```bash
 pip install tensorflow-directml
 ```
@@ -47,13 +47,15 @@ pip install opencv-python
 ## Setup the environment:
 
 ```bash
-!git clone 'https://github.com/leogenot/DeepDrawingGeneration'
+!git clone 'https://github.com/leogenot/GenerativeDeepDrawing/'
 ```
 
 ```bash
-%cd DeepDrawingGeneration
+%cd GenerativeDeepDrawing
 ```
 
 ### and then run the notebook 
 
+# Or simply run:
+[Link to notebook in Colab](https://colab.research.google.com/drive/1-XMUFnbl9FYbOe-MYNlzNj6Fb-UJqDOB?usp=sharing)
 
