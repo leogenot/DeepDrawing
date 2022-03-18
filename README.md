@@ -146,11 +146,11 @@ If you prefer using Google Colab to train the model:
 <!-- CONTACT -->
 ## Contact
 
-Léo Genot - [LinkedIn](https://www.linkedin.com/in/leo-genot/)
-Valentin Guiller - [LinkedIn]()
+Léo Genot - [LinkedIn](https://www.linkedin.com/in/leo-genot/)</br>
+Valentin Guiller - [LinkedIn]()</br>
 Adam Ferreira - [LinkedIn](https://www.linkedin.com/in/ad-ferreira/)
 
-Project Link: [Github](https://github.com/leogenot/GenerativeDeepDrawing)
+Project Link: [Github](https://github.com/leogenot/GenerativeDeepDrawing)</br>
 Website Link: [Generative Deep Drawing](https://leogenot.github.io/GenerativeDeepDrawing)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
