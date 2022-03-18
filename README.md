@@ -37,6 +37,9 @@ pip install scipy
 ```bash
 pip install pydot
 ```
+```bash
+pip install opencv-python
+```
 
 ## and then run the notebook in your preferred app
 
