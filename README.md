@@ -16,7 +16,7 @@
     <a href="https://leogenot.github.io/GenerativeDeepDrawing"><strong>Try yourself »</strong></a>
     <br /> <br />
 
-
+</div>
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
