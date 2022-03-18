@@ -129,7 +129,7 @@ pip install opencv-python
 If you prefer using Google Colab to train the model:
 
 1. Open the following link and run the notebook, everything is already set-up:
-[Google Colab Notebook](https://colab.research.google.com/drive/1-XMUFnbl9FYbOe-MYNlzNj6Fb-UJqDOB?usp=sharing)
+[Google Colab Notebook](https://colab.research.google.com/drive/1yAFerR1qAnF_E2ZQ98MfHUmXr6sG6JEe?usp=sharing)
 
    
 2. Or create a notebook yourself and copy these commands:
