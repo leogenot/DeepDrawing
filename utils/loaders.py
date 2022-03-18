@@ -1,6 +1,5 @@
 import pickle
 import os
-from turtle import colormode
 
 from tensorflow.keras.datasets import mnist, cifar100, cifar10
 from tensorflow.keras.preprocessing.image import (
@@ -251,7 +250,6 @@ def load_dataset(data_name, image_size, batch_size):
     x_train = data_gen.flow_from_directory(
         data_folder,
         target_size=(image_size, image_size),
-        color_mode = "grayscale",
         batch_size=batch_size,
         shuffle=True,
         class_mode="input",

@@ -87,7 +87,7 @@ class WGANGP():
         self.n_layers_critic = len(critic_conv_filters)
         self.n_layers_generator = len(generator_conv_filters)
 
-        self.weight_init = RandomNormal(mean=0., stddev=0.02) # 'he_normal' #RandomNormal(mean=0., stddev=0.02)
+        self.weight_init = RandomNormal(mean=0., stddev=0.02) # 'he_normal' #RandomNormal(mean=0., stddev=0.02)
         self.grad_weight = grad_weight
         self.batch_size = batch_size
 
