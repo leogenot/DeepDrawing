@@ -56,4 +56,7 @@ pip install opencv-python
 
 ### and then run the notebook 
 
+# Or simply run:
+[Link to notebook in Colab](https://colab.research.google.com/drive/1yAFerR1qAnF_E2ZQ98MfHUmXr6sG6JEe?usp=sharing)
+
 
