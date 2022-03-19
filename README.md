@@ -34,6 +34,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#examples">Examples</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -143,6 +144,18 @@ If you prefer using Google Colab to train the model:
    
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- EXAMPLES -->
+## Examples
+<div align="center">
+  <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/sample_0.png" alt="Sample">
+  <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/gif.gif" alt="Gif1">
+  <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/gif2.gif" alt="Gif2">
+  <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/gif3.gif" alt="Gif3">
+ </div>
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
 <!-- CONTACT -->
 ## Contact
 
@@ -173,3 +186,7 @@ Some ressources that were helpful for the project:
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [product-screenshot]: https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/website.png
+[sample-image]: https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/sample_0.png
+[gif1-image]: https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/gif.gif
+[gif2-image]: https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/gif2.gif
+[gif3-image]: https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/gif3.gif
