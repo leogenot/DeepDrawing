@@ -45,7 +45,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Generative Deep Drawing Website Screen Shot][product-screenshot]](https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/website.png)
+<div align="center">
+  <a href="https://leogenot.github.io/GenerativeDeepDrawing/">
+    <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/web-gif.gif" alt="Demo">
+  </a>
+</div>
+</Br>
+
 Can an algorithm learn to draw? Since the DeepMind deep learning network won against the Go player Lee Sedol in 2016, it seems that any highly complex task can be invested by these computing techniques. Now, traditionally, drawing is a cognitive task that is complex because it combines the mind with the mastery of a gesture. From very large sets of drawings, GANs, new deep learning architectures, can generate realistic or convincing graphics. Other questions then arise: Can we create a program that is creative (or aids creativity)? And can we collaborate with it in order to invent new methods of creation? These are the questions that our project tries to answer.
 
 
