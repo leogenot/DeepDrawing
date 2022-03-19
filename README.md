@@ -34,6 +34,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#examples">Examples</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -142,6 +143,19 @@ If you prefer using Google Colab to train the model:
    3. Then copy and paste each cells of the [_wgan_gp.ipynb_](https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/wgan_gp.ipynb) notebook by hand.
    
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<!-- EXAMPLES -->
+## Examples
+<div align="center">
+  <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/sample_0.png" alt="Sample">
+  <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/gif.gif" alt="Gif1">
+  <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/gif2.gif" alt="Gif2">
+  <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/gif3.gif" alt="Gif3">
+ </div>
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
 
 <!-- CONTACT -->
 ## Contact
