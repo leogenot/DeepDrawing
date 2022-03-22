@@ -113,6 +113,9 @@ pip install ipykernel
 pip install matplotlib
 ```
 ```sh
+pip install notebook
+```
+```sh
 pip install pandas
 ```
 ```sh
