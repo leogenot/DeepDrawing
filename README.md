@@ -8,7 +8,7 @@
     <img src="https://github.com/leogenot/DeepDrawing/blob/WGAN-GP/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Generative Deep Drawing</h3>
+  <h3 align="center">Deep Drawing</h3>
 
   <p align="center">
     Unleash your creativity using AI
@@ -175,7 +175,7 @@ Valentin Guiller - [LinkedIn]()</br>
 Adam Ferreira - [LinkedIn](https://www.linkedin.com/in/ad-ferreira/)
 
 Project Link: [Github](https://github.com/leogenot/DeepDrawing)</br>
-Website Link: [Generative Deep Drawing](https://leogenot.github.io/DeepDrawing)
+Website Link: [Deep Drawing](https://leogenot.github.io/DeepDrawing)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
