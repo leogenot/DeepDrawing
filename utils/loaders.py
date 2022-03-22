@@ -1,6 +1,6 @@
 import pickle
 import os
-
+from turtle import colormode
 from tensorflow.keras.preprocessing.image import (
     ImageDataGenerator,
     load_img,
@@ -157,7 +157,7 @@ def load_dataset(data_name, image_size, batch_size):
         shuffle=True,
         class_mode="input",
         subset="training",
-        #color_mode="grayscale",
+        color_mode="grayscale",
     )
     print(image_size)
 
