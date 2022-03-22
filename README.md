@@ -108,6 +108,12 @@ pip install tensorflow-directml
 pip install ipykernel
 ```
 ```sh
+pip install notebook
+```
+```sh
+pip install pydot
+```
+```sh
 pip install matplotlib
 ```
 ```sh
