@@ -1,7 +1,6 @@
 import pickle
 import os
 
-from tensorflow.keras.datasets import mnist, cifar100, cifar10
 from tensorflow.keras.preprocessing.image import (
     ImageDataGenerator,
     load_img,
