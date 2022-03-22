@@ -4,8 +4,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/leogenot/GenerativeDeepDrawing">
-    <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/leogenot/DeepDrawing">
+    <img src="https://github.com/leogenot/DeepDrawing/blob/WGAN-GP/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Generative Deep Drawing</h3>
@@ -13,7 +13,7 @@
   <p align="center">
     Unleash your creativity using AI
     <br />
-    <a href="https://leogenot.github.io/GenerativeDeepDrawing"><strong>Try yourself »</strong></a>
+    <a href="https://leogenot.github.io/DeepDrawing"><strong>Try yourself »</strong></a>
     <br /> <br />
 
 </div>
@@ -46,8 +46,8 @@
 ## About The Project
 
 <div align="center">
-  <a href="https://leogenot.github.io/GenerativeDeepDrawing/">
-    <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/web-gif.gif" alt="Demo">
+  <a href="https://leogenot.github.io/DeepDrawing/">
+    <img src="https://github.com/leogenot/DeepDrawing/blob/WGAN-GP/images/web-gif.gif" alt="Demo">
   </a>
 </div>
 </Br>
@@ -147,12 +147,12 @@ If you prefer using Google Colab to train the model:
    
 2. Or create a notebook yourself and copy these commands:
 ```sh
-!git clone 'https://github.com/leogenot/GenerativeDeepDrawing/'
+!git clone 'https://github.com/leogenot/DeepDrawing/'
    ```
    ```sh
-   %cd GenerativeDeepDrawing
+   %cd DeepDrawing
    ```
-   3. Then copy and paste each cells of the [_wgan_gp.ipynb_](https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/wgan_gp.ipynb) notebook by hand.
+   3. Then copy and paste each cells of the [_wgan_gp.ipynb_](https://github.com/leogenot/DeepDrawing/blob/WGAN-GP/wgan_gp.ipynb) notebook by hand.
    
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -160,10 +160,10 @@ If you prefer using Google Colab to train the model:
 <!-- EXAMPLES -->
 ## Examples
 <div align="center">
-  <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/sample_0.png" alt="Sample">
-  <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/gif.gif" alt="Gif1">
-  <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/gif2.gif" alt="Gif2">
-  <img src="https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/gif3.gif" alt="Gif3">
+  <img src="https://github.com/leogenot/DeepDrawing/blob/WGAN-GP/images/sample_0.png" alt="Sample">
+  <img src="https://github.com/leogenot/DeepDrawing/blob/WGAN-GP/images/gif.gif" alt="Gif1">
+  <img src="https://github.com/leogenot/DeepDrawing/blob/WGAN-GP/images/gif2.gif" alt="Gif2">
+  <img src="https://github.com/leogenot/DeepDrawing/blob/WGAN-GP/images/gif3.gif" alt="Gif3">
  </div>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -176,8 +176,8 @@ Léo Genot - [LinkedIn](https://www.linkedin.com/in/leo-genot/)</br>
 Valentin Guiller - [LinkedIn]()</br>
 Adam Ferreira - [LinkedIn](https://www.linkedin.com/in/ad-ferreira/)
 
-Project Link: [Github](https://github.com/leogenot/GenerativeDeepDrawing)</br>
-Website Link: [Generative Deep Drawing](https://leogenot.github.io/GenerativeDeepDrawing)
+Project Link: [Github](https://github.com/leogenot/DeepDrawing)</br>
+Website Link: [Generative Deep Drawing](https://leogenot.github.io/DeepDrawing)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -198,4 +198,4 @@ Some ressources that were helpful for the project:
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[product-screenshot]: https://github.com/leogenot/GenerativeDeepDrawing/blob/WGAN-GP/images/website.png
+[product-screenshot]: https://github.com/leogenot/DeepDrawing/blob/WGAN-GP/images/website.png
