@@ -2,134 +2,330 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Generative Deep Drawing</title>
-	<link rel="stylesheet" href="styles.css" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
-
-	<script type='text/javascript' src='js/three.min.js'></script>
-	<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.1.1606863050/camera_utils.js"
-		crossorigin="anonymouse"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.1.1606873488/drawing_utils.js"
-		crossorigin="anonymouse"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.1.1606863095/hands.js"
-		crossorigin="anonymouse"></script>
-	<script src="https://cdn.jsdelivr.net/npm/three@0.123.0/examples/js/objects/Refractor.js"
-		crossorigin="anonymouse"></script>
-		<script src="js/load_page.js"
-		crossorigin="anonymouse"></script>
-	<script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.1.1/math.js"
-		integrity="sha512-0MC8WeRWoyA1u5N3ssCsJDSbNfw3bjF65BIQ3UTPs9nwaV0fy+JN3FH9PQmYACZOEkQFhUvEP+jIqwOlBjEM9w=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="js/numjs.js"></script>
-	<script type='text/javascript' src='js/ThreeWorld.js'></script>
-	<script type='text/javascript' src='js/Controls2D.js'></script>
-	<script type='text/javascript' src='js/trackball-controls.min.js'></script>
-
+	<meta charset="UTF-8">
+	<meta name="keywords" content="Generative Deep Drawing, Random sketches, ai, tensorflow, generative, deep learning">
+	<meta name="description" content="Deep Drawing is a website to generate random sketches with AI.">
+	<meta property="og:site_name" content="DeepDrawing">
+	<meta property="og:url" content="https://leogenot.github.io/DeepDrawing/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="DeepDrawing: Generate random sketches using AI.">
+	<meta name='og:image' content='images/assets/ogg.png'>
+	<!-- For IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- For Resposive Device -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- For Window Tab Color -->
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#2a2a2a">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#2a2a2a">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#2a2a2a">
+	<title>Deep Drawing Generate Random Sketches.</title>
+	<!-- FA icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/brands.min.css"
+		integrity="sha512-OivR4OdSsE1onDm/i3J3Hpsm5GmOVvr9r49K3jJ0dnsxVzZgaOJ5MfxEAxCyGrzWozL9uJGKz6un3A7L+redIQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- Main style sheet -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- responsive style sheet -->
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
 </head>
 
-<body>
-	<div class="container">
-		<div class="left column" id="show-generate">
-			<div class="logo"><img src="images/logo.svg" alt="Generative Deep Drawing Logo Loader"></div>
-			<div class="header">
-				<h1 class="ml12">GENERATE</h1>
-			</div>
-			<div class="header">
-				<h1 class="ml13">RANDOM</h1>
-			</div>
-			<div class="header">
-				<h1 class="ml14">SKETCHES.</h1>
-			</div>
-			<div class="price">
-				<span><a href="https://github.com/leogenot/DeepDrawingGeneration" target="_blank"
-						class="link-s">GITHUB</a></span>
-				<span><a >&copy; 2022 Léo Genot / Valentin Guiller / Adam Ferreira</a></span>
-			</div>
-		</div>
-		<div class="left column" id="show-cam-cursor" style="display:none;">
-			<div class="logo"><img src="images/logo.svg" alt="Generative Deep Drawing Logo Loader"></div>
-			<div class="container_video">
-				<video class="input_video"></video>
-				<canvas class="output_canvas" width="127px" height="127px"></canvas>
-				<div class="loading">
-					<div class="spinner"></div>
-					<div class="message">
-						Loading
+<body data-spy="scroll" data-target="#one-page-nav" data-offset="120">
+	<div class="main-page-wrapper font-gordita dark-style lg-container">
+		<!-- ===================================================
+				Loading Transition
+			==================================================== -->
+		<section>
+			<div id="preloader">
+				<div id="ctn-preloader" class="ctn-preloader">
+					<div class="animation-preloader">
+						<div class="spinner"></div>
+						<div class="txt-loading">
+							<span data-text-preloader="D" class="letters-loading">
+								D
+							</span>
+							<span data-text-preloader="E" class="letters-loading">
+								E
+							</span>
+							<span data-text-preloader="E" class="letters-loading">
+								E
+							</span>
+							<span data-text-preloader="P" class="letters-loading">
+								P
+							</span>
+							<span data-text-preloader="D" class="letters-loading">
+								D
+							</span>
+							<span data-text-preloader="R" class="letters-loading">
+								R
+							</span>
+							<span data-text-preloader="A" class="letters-loading">
+								A
+							</span>
+							<span data-text-preloader="W" class="letters-loading">
+								W
+							</span>
+							<span data-text-preloader="I" class="letters-loading">
+								I
+							</span>
+							<span data-text-preloader="N" class="letters-loading">
+								N
+							</span>
+							<span data-text-preloader="G" class="letters-loading">
+								G
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="header" id="video_cont">
-			</div>
-			<div class="header">
-				<p>For webcam:
-				</br> use one hand to move through the Latent-Space
-					and see sketches being morphed. </br></br>
-					For cursor:
-				</br> use your mouse to move the cursor through the
-					Latent-Space and see sketches being morphed.</p>
-			</div>
-			<div class="price">
-				<span><a href="https://github.com/leogenot/DeepDrawingGeneration" target="_blank"
-						class="link-s">GITHUB</a></span>
-				<span><a >&copy; 2022 Léo Genot / Valentin Guiller / Adam Ferreira</a></span>
-			</div>
-		</div>
-		<div class="right column">
+		</section>
 
-			<div class="tabs nav">
-				<span class="tab generate active nav-item"><a>GENERATE IMAGE</a></span>
-				<span class="tab animate nav-item"><a>ANIMATE</a></span>
-			</div>
-			<div class="content">
-				<div class="generate-cont cont">
-					<div class="card-img">
-						<div id="celeba-scene-first">
-							<div class="loader">Click below to start</div>
-						</div>
-						<canvas class="img-responsive p-2" id="generated-image" height="128px" width="128px"
-							src=""></canvas>
-					</div>
-					<div class="buttons">
-						<div class="btn">
-							<button id="generate-button">GENERATE</button>
-						</div>
-						<div class="btn">
-							<button id="save-button">SAVE IMAGE</button>
-						</div>
-					</div>
-				</div>
-				<div class="animate-cont cont">
-					<div id="celeba-scene">
-						<div class="loader">Click below to start</div>
-					</div>
-					<div class="buttons">
-						<div class="btn latent-buttons">
-							<button id="webcam-load-button">USE WEBCAM</button>
-						</div>
-						<div class="btn latent-buttons">
-							<button id="anim-load-button" value="TRUE">AUTO ANIMATE</button>
-						</div>
-						<div class="btn latent-buttons">
-							<button id="cursor-load-button">USE CURSOR</button>
-						</div>
-					</div>
-				</div>
-			</div>
 
+
+		<!-- 
+			=============================================
+				Theme Hero Banner
+			============================================== 
+			-->
+		<div class="hero-banner-six">
+			<div class="illustration-content">
+				<img src="images/shape/144.svg" alt="" class="main-img ml-auto">
+				<img src="images/assets/sample_6500.png" alt="" class="screen-one">
+				<!-- 
+				<div class="screen-two"><img src="images/assets/gif_0.gif" alt="" class="ml-auto"></div> -->
+				<img src="images/shape/145.svg" alt="" class="shapes shape-one">
+				<img src="images/shape/146.svg" alt="" class="shapes shape-two">
+				<img src="images/shape/147.svg" alt="" class="shapes shape-three">
+				<img src="images/shape/148.svg" alt="" class="shapes shape-four">
+				<img src="images/shape/149.svg" alt="" class="shapes shape-five">
+				<img src="images/shape/150.png" alt="" class="shapes shape-six">
+				<div class="shapes oval-one"></div>
+				<div class="shapes oval-two"></div>
+				<div class="shapes oval-three"></div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-6 col-lg-6">
+						<h1 class="font-recoleta hero-heading">Generate <span>Random</span> Sketches.</h1>
+						<p class="hero-sub-heading">Play with our AI and unleash your creativity.</p>
+						<div class="d-sm-flex align-items-center button-group">
+							<a href="#start-experience"
+								class="d-flex align-items-center ios-button gr-bg-one hover-reverse-gr-bg-one order-sm-first">
+								<img src="images/icon/play-circle.svg" alt="" class="icon">
+								<div>
+									<span>Start the</span>
+									<strong>Experience</strong>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- /.hero-banner-six -->
+
+		<!-- 
+			=============================================
+				Fancy Feature Thirteen
+			============================================== 
+			-->
+		<div class="fancy-feature-thirteen mt-250 md-mt-110" id="feature">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-8 col-lg-11 col-md-10 m-auto">
+						<div class="title-style-six text-center">
+							<h2>Unleash your <span>Creativity</span> in a playful way.</h2>
+							<p class="text-xs">Try out different ways to play with our AI and generate plenty of ideas.
+							</p>
+						</div> <!-- /.title-style-six -->
+					</div>
+				</div>
+
+				<div class="sldier-wrapper mt-110 md-mt-50" id="start-experience">
+					<div id="productScreenSlider" class="carousel slide" data-ride="carousel" data-interval="2000000000">
+						<ol class="carousel-indicators justify-content-between">
+							<li data-target="#productScreenSlider" data-slide-to="0" class="active">
+								<div class="d-flex">
+									<div class="icon d-flex align-items-center justify-content-center"><img
+											src="images/icon/81.svg" alt=""></div>
+									<p>Generate one <br>image</p>
+								</div>
+							</li>
+							<li data-target="#productScreenSlider" data-slide-to="1">
+								<div class="d-flex">
+									<div class="icon d-flex align-items-center justify-content-center"><img
+											src="images/icon/81.svg" alt=""></div>
+									<p>Generate <br>GIF</p>
+								</div>
+							</li>
+							<li data-target="#productScreenSlider" data-slide-to="2">
+								<div class="d-flex">
+									<div class="icon d-flex align-items-center justify-content-center"><img
+											src="images/icon/81.svg" alt=""></div>
+									<p>Play with <br>webcam</p>
+								</div>
+							</li>
+							<li data-target="#productScreenSlider" data-slide-to="3">
+								<div class="d-flex">
+									<div class="icon d-flex align-items-center justify-content-center"><img
+											src="images/icon/81.svg" alt=""></div>
+									<p>Play with <br>cursor</p>
+								</div>
+							</li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<div class="card-img">
+									<div id="celeba-scene-image">
+										<div class="loader">Click below to generate one image</div>
+									</div>
+									<canvas class="img-responsive p-2" id="generated-image"
+										src=""></canvas>
+								</div>
+								<div class="buttons">
+									<div class="btn">
+										<button id="generate-button">GENERATE</button>
+									</div>
+									<div class="btn">
+										<button id="save-button">SAVE IMAGE</button>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<div class="card-img">
+									<div id="celeba-scene-gif">
+										<div class="loader">Click below to create a GIF</div>
+									</div>
+								</div>
+								<div class="buttons">
+									<div class="btn">
+										<button id="anim-load-button">CREATE GIF</button>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<div class="card-img">
+									<div id="celeba-scene-webcam">
+										<div class="loader">Click below to play with the AI</div>
+									</div>
+								</div>
+								<div class="buttons">
+									<div class="btn">
+										<button id="webcam-load-button">USE WEBCAM</button>
+									</div>
+									<div class="container_video">
+										<video class="input_video"></video>
+										<canvas class="output_canvas" width="127px" height="127px"></canvas>
+									</div>
+									
+								</div>
+								<p class="copyright">Use your hand to play with the drawings.</p>
+							</div>
+							<div class="carousel-item">
+								<div class="card-img">
+									<div id="celeba-scene-cursor">
+										<div class="loader">Click below to play with the AI</div>
+									</div>
+								</div>
+								<div class="buttons">
+									<div class="btn">
+										<button id="cursor-load-button">USE CURSOR</button>
+									</div>
+								</div>
+								<p class="copyright">Use the cursor to play with the drawings.</p>
+							</div>
+						</div>
+					</div>
+				</div> <!-- /.sldier-wrapper -->
+			</div>
+		</div> <!-- /.fancy-feature-thirteen -->
+
+
+
+		<div style="overflow: hidden;">
+
+
+			<!--
+				=====================================================
+					Footer Style Six
+				=====================================================
+				-->
+			<footer class="theme-footer-six">
+				<div class="inner-container">
+					<div class="container">
+						<div class="row justify-content-center align-items-center">
+							<div class="col-lg-4">
+								<div class="logo"><a href="index.html"><img src="images/logo/logo.png" alt=""></a>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="title">Find our project on Github</div>
+								<ul class="d-flex justify-content-center social-icon">
+									<li><a href="https://github.com/leogenot/DeepDrawing"><i
+												class="fa fa-brands fa-github" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+							<div class="col-lg-4">
+								<div class="title">We’re always happy to help.</div>
+								<div class="text-center"><a href="https://github.com/leogenot/DeepDrawing/issues"
+										class="email">Github issues</a></div>
+							</div>
+						</div>
+						<p class="copyright">Copyright @2022 Léo Genot / Valentin Guiller / Adam Ferreira.</p>
+					</div>
+				</div> <!-- /.inner-container -->
+			</footer> <!-- /.theme-footer-six -->
 		</div>
-	</div>
+
+
+
+
+		<!-- Scroll Top Button -->
+		<button class="scroll-top" style="background:#ff2759;">
+			<i class="fa fa-angle-up" aria-hidden="true"></i>
+		</button>
+
+		<!-- Optional JavaScript _____________________________  -->
+
+		<!-- jQuery -->
+		<script src="vendor/jquery.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+
+
+
+		<script type='text/javascript' src='js/three.min.js'></script>
+		<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.1.1606863050/camera_utils.js"
+			crossorigin="anonymouse"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.1.1606873488/drawing_utils.js"
+			crossorigin="anonymouse"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.1.1606863095/hands.js"
+			crossorigin="anonymouse"></script>
+		<script src="https://cdn.jsdelivr.net/npm/three@0.123.0/examples/js/objects/Refractor.js"
+			crossorigin="anonymouse"></script>
+		<script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.1.1/math.js"
+			integrity="sha512-0MC8WeRWoyA1u5N3ssCsJDSbNfw3bjF65BIQ3UTPs9nwaV0fy+JN3FH9PQmYACZOEkQFhUvEP+jIqwOlBjEM9w=="
+			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="js/numjs.js"></script>
+		<script type='text/javascript' src='js/ThreeWorld.js'></script>
+		<script type='text/javascript' src='js/Controls2D.js'></script>
+		<script type='text/javascript' src='js/trackball-controls.min.js'></script>
+
+
+
+
+		<!-- Theme js -->
+		<script src="js/theme.js"></script>
+
+		<!-- Deep Drawing js -->
+		<script src="js/script.js"></script>
+	</div> <!-- /.main-page-wrapper -->
 </body>
-<script src="js/script.js"></script>
 
 </html>

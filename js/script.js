@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     (async function () {
         generator = await tf.loadLayersModel("model_js/model.json");
     })();
-    var container_image = document.querySelector("#celeba-scene-first"),
+    var container_image = document.querySelector("#celeba-scene-image"),
         loader_image = container_image.querySelector(".loader");
     document
         .getElementById("generate-button")
@@ -40,7 +40,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
         element.click();
     });
-
     var modelPath = "model_js/model.json";
 
     var image_size = 128;
@@ -50,8 +49,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     var latentspace2D = nj.zeros([image_size, image_size, input_dim]);
     var ptgenerated = nj.zeros([1, input_dim]);
     var world;
-    var container = document.querySelector("#celeba-scene"),
-        loader = container.querySelector(".loader");
 
     // get the point geometry
     function getGeometry(colors) {
@@ -71,6 +68,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     document
         .getElementById("webcam-load-button")
         .addEventListener("click", function () {
+            var container = document.querySelector("#celeba-scene-webcam"),
+                loader = container.querySelector(".loader");
             $("#video_cont").append(video_container);
             var three_canvas = document.querySelector("#three_canvas");
             if (three_canvas) {
@@ -148,6 +147,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
                         config.viewportHeight
                     );
                     this.unitSizePlane = new THREE.PlaneBufferGeometry(1, 1);
+
+                   
 
                     // Define a safe upper bound for the number of layer-planes. Used to
                     // calculate Z coordinates based on the plane order.
@@ -413,11 +414,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
                     document.getElementsByClassName("output_canvas")[0];
 
                 // Optimization: Turn off animated spinner after its hiding animation is done.
-                const spinner = document.querySelector(".loading");
-                spinner.ontransitionend = () => {
-                    spinner.style.display = "none";
-                    canvasElement.style.display = "none";
-                };
+
 
                 // Define demo config.
                 const iceDefrostingEffectConfig = {
@@ -479,7 +476,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 handTracker.setOptions(handTrackerConfig);
                 handTracker.onResults((results) => {
                     // Hide the spinner.
-                    document.body.classList.add("loaded");
+                    //document.body.classList.add("loaded");
                     //console.log(handLandmarkProcessor.process(results.multiHandLandmarks))
                     // Process landmarks & render the effect.
                     iceDefrostingEffectRenderer.render(
@@ -647,6 +644,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     document
         .getElementById("cursor-load-button")
         .addEventListener("click", function () {
+            var container = document.querySelector("#celeba-scene-cursor"),
+                loader = container.querySelector(".loader");
             video_container.detach();
             //document.querySelector(".container_video").style.display = "none"
             var three_canvas = document.querySelector("#three_canvas");
@@ -669,6 +668,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 gif_image.parentNode.removeChild(gif_image);
                 //alert("exist")
             }
+
             world = new ThreeWorld({
                 container: container,
             });
@@ -838,6 +838,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 });
         });
 
+
+
+    var container = document.querySelector("#celeba-scene-gif"),
+        loader = container.querySelector(".loader");
+
     document
         .getElementById("anim-load-button")
         .addEventListener("click", function () {
@@ -860,25 +865,25 @@ window.addEventListener("DOMContentLoaded", (event) => {
             }
 
             var gif_image = document.querySelector("#gif_image");
+
             if (gif_image) {
                 gif_image.parentNode.removeChild(gif_image);
                 //alert("exist")
             }
 
-            var i = Math.floor(Math.random() * 5) + 1;
-
-            fetch("./gif/" + i + ".gif")
+            var i = Math.floor(Math.random() * 90) + 1;
+            fetch("./gifs/" + "0" + i + ".gif")
                 .then(() => {
                     console.log(i)
                     if (document.body.contains(loader)) {
                         loader.parentNode.removeChild(loader);
                     }
                     var gif_image = document.createElement("img")
-                    gif_image.setAttribute('id','gif_image');
-                    gif_image.src = "./gif/" + i + ".gif"
-                    var celeb_a_container = document.getElementById("celeba-scene");
+                    gif_image.setAttribute('id', 'gif_image');
+                    gif_image.src = "./gifs/" + "0" + i + ".gif"
+                    var celeb_a_container = document.getElementById("celeba-scene-gif");
                     celeb_a_container.appendChild(gif_image);
-                    document.getElementById("celeba-scene").classList.add("gif_active");
+                    document.getElementById("celeba-scene-gif").classList.add("gif_active");
                     console.log("Everything is loaded");
                 })
 
