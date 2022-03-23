@@ -295,6 +295,11 @@ canvas :not(.output_canvas)  {
 	position: relative;
   }
 
+  div#celeba-scene-image {
+	height: 400px;
+	position: absolute;
+  }
+
   .gif_active{
 	display: flex;              /* establish flex container */
     flex-direction: column;     /* stack flex items vertically */

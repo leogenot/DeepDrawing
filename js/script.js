@@ -3,7 +3,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     (async function () {
         generator = await tf.loadLayersModel("model_js/model.json");
     })();
-
+    var container_image = document.querySelector("#celeba-scene-first"),
+        loader_image = container_image.querySelector(".loader");
     document
         .getElementById("generate-button")
         .addEventListener("click", async function () {
@@ -18,6 +19,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
             const mycanvas = document.getElementById("generated-image");
             tf.browser.toPixels(generatedImage, mycanvas).then(() => {
+                if (document.body.contains(loader_image)) {
+                    loader_image.parentNode.removeChild(loader_image);
+                }
                 generatedImage.dispose();
             });
         });
