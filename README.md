@@ -176,6 +176,11 @@ Léo Genot - [LinkedIn](https://www.linkedin.com/in/leo-genot/)</br>
 Valentin Guiller - [LinkedIn]()</br>
 Adam Ferreira - [LinkedIn](https://www.linkedin.com/in/ad-ferreira/)
 
+Vincent Nozick - [LinkedIn](https://www.linkedin.com/in/vincent-nozick-8030132/)</br>
+Gaëtan Robillard - [LinkedIn](https://www.linkedin.com/in/gaetanrobillard/)
+
+IMAC engineering school - [Website](https://www.ingenieur-imac.fr)
+
 Project Link: [Github](https://github.com/leogenot/DeepDrawing)</br>
 Website Link: [Deep Drawing](https://leogenot.github.io/DeepDrawing)
 
