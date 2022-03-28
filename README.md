@@ -47,7 +47,7 @@
 
 <div align="center">
   <a href="https://leogenot.github.io/DeepDrawing/">
-    <img src="https://github.com/leogenot/DeepDrawing/blob/WGAN-GP/images/web-gif.gif" alt="Demo">
+    <img src="https://github.com/leogenot/DeepDrawing/blob/WGAN-GP/images/website.gif" alt="Demo">
   </a>
 </div>
 </Br>
