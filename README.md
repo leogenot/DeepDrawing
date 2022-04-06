@@ -105,6 +105,9 @@ Once everything above is set up you will have to run several commands in your te
 pip install tensorflow-directml
 ```
 ```sh
+pip install tensorflow_hub
+```
+```sh
 pip install ipykernel
 ```
 ```sh
