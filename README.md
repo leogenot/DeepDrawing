@@ -48,7 +48,7 @@
 
 <div align="center">
   <a href="https://leogenot.github.io/DeepDrawing/">
-    <img src="https://github.com/leogenot/DeepDrawing/blob/WGAN-GP/images/web-gif.gif" alt="Demo">
+    <img src="https://github.com/leogenot/DeepDrawing/blob/WGAN-GP/images/website.gif" alt="Demo">
   </a>
 </div>
 </Br>
@@ -105,6 +105,9 @@ Once everything above is set up you will have to run several commands in your te
 4. If you prefer going by hand enter all this commands in your terminal:
 ```sh
 pip install tensorflow-directml
+```
+```sh
+pip install tensorflow_hub
 ```
 ```sh
 pip install ipykernel
@@ -173,6 +176,11 @@ If you prefer using Google Colab to train the model:
 Léo Genot - [LinkedIn](https://www.linkedin.com/in/leo-genot/)</br>
 Valentin Guiller - [LinkedIn]()</br>
 Adam Ferreira - [LinkedIn](https://www.linkedin.com/in/ad-ferreira/)
+
+Vincent Nozick - [LinkedIn](https://www.linkedin.com/in/vincent-nozick-8030132/)</br>
+Gaëtan Robillard - [LinkedIn](https://www.linkedin.com/in/gaetanrobillard/)
+
+IMAC engineering school - [Website](https://www.ingenieur-imac.fr)
 
 Project Link: [Github](https://github.com/leogenot/DeepDrawing)</br>
 Website Link: [Deep Drawing](https://leogenot.github.io/DeepDrawing)
